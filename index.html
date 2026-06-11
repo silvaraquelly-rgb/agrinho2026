@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro de Soja - Futuro Sustentável</title>
+    <style>
+        /* Configurações Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fcf9f2;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 2. CABEÇALHO COMPLETO */
+        header {
+            background-color: #f1c40f; /* Amarelo Principal */
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e3f20; /* Verde Escuro */
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #1e3f20;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #1e3f20;
+            color: #f1c40f;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            padding: 8px 15px;
+            border: 2px solid #1e3f20;
+            border-radius: 20px 0 0 20px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-container button {
+            padding: 8px 15px;
+            background-color: #1e3f20;
+            color: #f1c40f;
+            border: 2px solid #1e3f20;
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .search-container button:hover {
+            background-color: #2d5a30;
+        }
+
+        /* 1. BANNER CHAMATIVO */
+        .banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .banner h1 {
+            font-size: 3.5rem;
+            color: #f1c40f;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+            font-weight: 300;
+        }
+
+        /* Container dos blocos de conteúdo */
+        .content-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* 3. SEÇÕES DE INFORMAÇÃO (QUATRO BLOCOS) */
+        .info-section {
+            background-color: white;
+            border-left: 8px solid #f1c40f;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 0 15px 15px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .info-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-section h2 {
+            color: #1e3f20;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        /* 4. QUIZ INTERATIVO */
+        .quiz-container {
+            background-color: #1e3f20;
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 50px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        .quiz-container h2 {
+            color: #f1c40f;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .quiz-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-card p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .options label {
+            display: block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px 15px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .options label:hover {
+            background-color: #f1c40f;
+            color: #1e3f20;
+        }
+
+        .options input {
+            margin-right: 10px;
+        }
+
+        .quiz-btn {
+            display: block;
+            width: 200px;
+            margin: 25px auto 0;
+            padding: 12px;
+            background-color: #f1c40f;
+            color: #1e3f20;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .quiz-btn:hover {
+            background-color: #f39c12;
+            transform: scale(1.05);
+        }
+
+        #resultado {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #f1c40f;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #1e3f20;
+            color: #fcf9f2;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">🌾 Agro de Soja</a>
+        <nav>
+            <a href="#producao">Produção</a>
+            <a href="#tecnologia">Tecnologia</a>
+            <a href="#sustentabilidade">Sustentabilidade</a>
+            <a href="#futuro">Futuro</a>
+            <a href="#quiz">Quiz</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" placeholder="Pesquisar no site...">
+            <button onclick="alert('Funcionalidade de pesquisa simulada!')">Buscar</button>
+        </div>
+    </header>
+
+    <section class="banner">
+        <h1>Agro Forte, Futuro Sustentável</h1>
+        <p>Equilíbrio entre produção e meio ambiente: a força da nossa soja movendo o mundo com responsabilidade ecológica.</p>
+    </section>
+
+    <div class="content-container">
+
+        <main id="producao" class="info-section">
+            <h2>1. O Papel Estratégico da Soja</h2>
+            <p>A soja é uma das culturas mais importantes do planeta, servindo como base para a alimentação humana, animal e para a produção de biocombustíveis. O grande desafio atual não é apenas produzir em larga escala, mas garantir que cada grão colhido respeite os limites do nosso ecossistema, gerando riqueza sem esgotar os recursos naturais.</p>
+        </main>
+
+        <main id="tecnologia" class="info-section">
+            <h2>2. Tecnologia e Agricultura de Precisão</h2>
+            <p>O uso de drones, sensores de solo e inteligência artificial permite mapear as lavouras detalhadamente. Com isso, os produtores conseguem aplicar água e insumos agrícolas apenas onde é estritamente necessário. Essa eficiência reduz o desperdício, protege os lençóis freáticos e aumenta a produtividade por hectare.</p>
+        </main>
+
+        <main id="sustentabilidade" class="info-section">
+            <h2>3. Práticas de Manejo Sustentável</h2>
+            <p>Técnicas como o Plantio Direto (onde a palha da colheita anterior protege o solo) e a Rotação de Culturas evitam a erosão e mantêm a terra fértil naturalmente. Além disso, a fixação biológica de nitrogênio reduz drasticamente a necessidade de fertilizantes químicos, poupando o meio ambiente.</p>
+        </main>
+
+        <main id="futuro" class="info-section">
+            <h2>4. O Futuro e a Preservação Ambiental</h2>
+            <p>O lema "Agro Forte, Futuro Sustentável" reforça o compromisso do setor com o desmatamento zero e a preservação das Reservas Legais. O equilíbrio ambiental garante a regularidade das chuvas e o clima ideal, provando que o cuidado com a natureza é o melhor parceiro para o sucesso econômico do produtor de soja.</p>
+        </main>
+
+        <section id="quiz" class="quiz-container">
+            <h2>Test seus Conhecimentos!</h2>
+            <form id="quizForm">
+                
+                <div class="quiz-card">
+                    <p>1. Qual técnica ajuda a evitar a erosão do solo mantendo a palha da colheita anterior?</p>
+                    <div class="options">
+                        <label><input type="radio" name="p1" value="errado"> Queimada controlada</label>
+                        <label><input type="radio" name="p1" value="correto"> Plantio Direto</label>
+                        <label><input type="radio" name="p1" value="errado"> Irrigação excessiva</label>
+                    </div>
+                </div>
+
+                <div class="quiz-card">
+                    <p>2. O equilíbrio entre produção de soja e meio ambiente garante principalmente:</p>
+                    <div class="options">
+                        <label><input type="radio" name="p2" value="correto"> A sustentabilidade e regularidade climática para o futuro</label>
+                        <label><input type="radio" name="p2" value="errado"> O esgotamento rápido dos nutrientes do solo</label>
+                        <label><input type="radio" name="p2" value="errado"> A substituição completa das florestas por plantações</label>
+                    </div>
+                </div>
+
+                <button type="button" class="quiz-btn" onclick="calcularResultado()">Enviar Respostas</button>
+            </form>
+            <div id="resultado"></div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Agro de Soja - Todos os direitos reservados. Produção com Consciência Ambiental.</p>
+    </footer>
+
+    <script>
+        function calcularResultado() {
+            const form = document.getElementById('quizForm');
+            let pontos = 0;
+            let totalPerguntas = 2;
+
+            // Validação da Pergunta 1
+            const p1 = form.elements['p1'].value;
+            if (p1 === 'correto') pontos++;
+
+            // Validação da Pergunta 2
+            const p2 = form.elements['p2'].value;
+            if (p2 === 'correto') pontos++;
+
+            // Exibição do resultado
+            const divResultado = document.getElementById('resultado');
+            if (p1 === "" || p2 === "") {
+                divResultado.style.color = "#ff6b6b";
+                divResultado.innerHTML = "Por favor, responda todas as perguntas antes de enviar!";
+            } else {
+                divResultado.style.color = "#f1c40f";
+                divResultado.innerHTML = `Você acertou ${pontos} de ${totalPerguntas} questões! ` + 
+                    (pontos === totalPerguntas ? "Parabéns! Você é um mestre da sustentabilidade no agro! 🌱" : "Bom esforço! Leia o conteúdo acima e tente novamente. 🌾");
+            }
+        }
+    </script>
+</body>
+</html>
